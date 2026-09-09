@@ -11,20 +11,33 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:my_student_profile/main.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
+  testWidgets('Student profile displays its main content', (
+    WidgetTester tester,
+  ) async {
+    // Build the app.
     await tester.pumpWidget(const MyApp());
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+    // Check the title and student information.
+    expect(find.text('Student Profile'), findsOneWidget);
+    expect(find.text('Kiervin P. Dixon'), findsOneWidget);
+    expect(find.text('BS Information Technology'), findsOneWidget);
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
+    // "Skills" appears in both the statistics and the section heading.
+    expect(find.text('Skills'), findsNWidgets(2));
 
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+    // Check that each listed skill appears as a chip.
+    for (final skill in ['Flutter', 'Dart', 'HTML', 'CSS', 'UI/UX']) {
+      expect(find.widgetWithText(Chip, skill), findsOneWidget);
+    }
+
+    // Scroll to the button so it is visible in the test viewport.
+    final profileButton = find.widgetWithText(ElevatedButton, 'View Profile');
+
+    expect(profileButton, findsOneWidget);
+    await tester.ensureVisible(profileButton);
+    await tester.pumpAndSettle();
+
+    // Check that the visible button can receive a tap.
+    expect(profileButton.hitTestable(), findsOneWidget);
   });
 }

@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
               ),
               const SizedBox(height: 12),
               const Text(
-                'Juan Dela Cruz',
+                'Kiervin P. Dixon',
                 style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
               ),
               const Text('BS Information Technology'),
@@ -42,7 +42,11 @@ class MyApp extends StatelessWidget {
                         children: [
                           Icon(Icons.email),
                           SizedBox(width: 10),
-                          Expanded(child: Text('student@email.com')),
+                          Expanded(
+                            child: Text(
+                              'kiervindixon@student.trimexcolleges.edu.ph',
+                            ),
+                          ),
                         ],
                       ),
                       SizedBox(height: 10),
@@ -50,7 +54,7 @@ class MyApp extends StatelessWidget {
                         children: [
                           Icon(Icons.phone),
                           SizedBox(width: 10),
-                          Text('09XX-XXX-XXXX'),
+                          Text('0991-219-7679'),
                         ],
                       ),
                       SizedBox(height: 10),
@@ -68,11 +72,11 @@ class MyApp extends StatelessWidget {
               const SizedBox(height: 16),
               Row(
                 children: const [
-                  Expanded(child: _StatBox('5', 'Projects')),
+                  Expanded(child: _StatBox('12', 'Projects')),
                   SizedBox(width: 8),
-                  Expanded(child: _StatBox('8', 'Skills')),
+                  Expanded(child: _StatBox('9', 'Skills')),
                   SizedBox(width: 8),
-                  Expanded(child: _StatBox('6', 'Subjects')),
+                  Expanded(child: _StatBox('8', 'Subjects')),
                 ],
               ),
               const SizedBox(height: 16),
